@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EasyNetUserControl1.ascx.cs" Inherits="EasyNetProject.EasyNetUserControl1" %>
+<asp:Button ID="btn_refresh" runat="server" Text="Refresh" CausesValidation="false" OnClick="btn_refresh_Click" />

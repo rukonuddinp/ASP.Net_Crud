@@ -1,0 +1,41 @@
+
+
+
+
+
+Use EasyNetDB
+go
+
+
+
+CREATE TABLE [dbo].[Management](
+	[Id] [int] IDENTITY PRIMARY KEY NOT NULL,
+	[M_Name] [varchar](50) NULL)
+ 
+
+CREATE TABLE [dbo].[Department](
+	[Id] [int] IDENTITY PRIMARY KEY NOT NULL,
+	[D_Name] [varchar](50) NULL,
+	[M_DepartmentId] [int] foreign key references [Management](
+	[Id])NULL)
+
+CREATE TABLE [dbo].[Employee](
+	[Id] [int] IDENTITY PRIMARY KEY NOT NULL,
+	[E_Name] [varchar](50) NULL,
+	[Post] [varchar](50) NULL,
+	[JoiningDate] [date] NULL,
+	[D_EmployeeId] [int] foreign key references [Department](
+	[Id])NULL)
+
+
+CREATE TABLE [dbo].[Customer](
+	[Id] [int] IDENTITY PRIMARY KEY  NOT NULL,
+	[C_Name] [varchar](50) NULL,
+	[Picture] [varchar](1000) NULL,
+	[E_CustomerId] [int] foreign key references [Employee](
+	[Id])NULL)
+
+
+create table CustomerWisePeople 
+(Id int identity primary key,
+CustomerId int foreign key references Customer(Id))
